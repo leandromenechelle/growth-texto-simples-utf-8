@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento</title>
+<style>
+    .parte { font-size: 26px; font-weight: bold; margin-top: 20px; }
+    .capitulo { font-size: 24px; font-weight: bold; margin-top: 15px; }
+</style>
 </head>
 <body>
-    <p>
+
+<div id="conteudo">
 
 Hacking growth – A estratégia de marketing inovadora das empresas de crescimento mais rápido 
 © 2017 Casa Educação Soluções Educacionais Ltda. Copyright © by Sean Ellis and Philip Morgan Brown. All rights reserved. ublished in the United States by Crown Business, an imprint of the Crown Publishing Group, a division of Penguin Random House LLC, New York. 
@@ -1712,6 +1717,41 @@ De vez em quando, o time de crescimento deve fazer testes cuja meta é mais do q
 A nosso ver, o growth hacking é muito mais do que uma estratégia de negócios, muito mais do que um processo contínuo. É uma filosofia, uma maneira de pensar, e ele pode ser usado por qualquer equipe ou empresa, grande ou pequena. Esperamos que este livro tenha convencido você, leitor, a adotá-lo. 
 Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento incessante. 
 
-    </p>
+</div>
+
+<script>
+    const conteudoDiv = document.getElementById('conteudo');
+    const linhas = conteudoDiv.innerText.split('\n');
+    let html = '';
+    const partes = [
+        "PARTE 1: O MÉTODO",
+        "PARTE 2: O GUIA DO GROWTH HACKING"
+    ];
+    const capitulos = [
+        "1. COMO MONTAR UMA EQUIPE DE CRESCIMENTO",
+        "2. COMO SABER SE SEU PRODUTO É “MUST-HAVE”",
+        "3. COMO IDENTIFICAR SUAS ALAVANCAS DE CRESCIMENTO",
+        "4. TESTANDO EM RITMO ACELERADO",
+        "5. HACKING PARA A AQUISIÇÃO",
+        "6. HACKING PARA A ATIVAÇÃO",
+        "7. HACKING PARA A RETENÇÃO",
+        "8. HACKING PARA A MONETIZAÇÃO",
+        "9. UM CICLO VIRTUOSO DE CRESCIMENTO"
+    ];
+
+    linhas.forEach(linha => {
+        if (partes.includes(linha.toUpperCase())) {
+            html += `<div class="parte">${linha}</div>`;
+        } else if (capitulos.includes(linha.toUpperCase())) {
+            html += `<div class="capitulo">${linha}</div>`;
+        } else {
+            const sentencas = linha.split('. ');
+            html += `<div>${sentencas.join('.<br>')}</div>`;
+        }
+    });
+
+    conteudoDiv.innerHTML = html;
+</script>
+
 </body>
 </html>
