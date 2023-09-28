@@ -3,12 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Growth Hacking</title>
-<style>
-    .parte { font-size: 26px; font-weight: bold; margin-top: 20px; }
-    .capitulo { font-size: 24px; font-weight: bold; margin-top: 15px; }
-    .subtitulo { font-size: 20px; font-weight: bold; margin-top: 10px; margin-bottom: 10px; }
-</style>
+<title>Documento</title>
 </head>
 <body>
 
@@ -1689,23 +1684,9 @@ Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento 
 
 <script>
     const conteudoDiv = document.getElementById('conteudo');
-    const linhas = conteudoDiv.innerText.split('\n');
-    let html = '';
-
-    linhas.forEach((linha, index) => {
-        const proximaLinha = linhas[index + 1] || '';
-        if (/^PARTE \d+:/.test(linha.toUpperCase())) {
-            html += `<div class="parte">${linha}</div><br>`;
-        } else if (/^\d+\./.test(linha)) {
-            html += `<div class="capitulo">${linha}</div><br>`;
-        } else if (/^[A-Z\s]+$/.test(linha) && proximaLinha && proximaLinha !== proximaLinha.toUpperCase()) {
-            html += `<div class="subtitulo">${linha}</div><br>`;
-        } else {
-            html += `<div>${linha}</div>`;
-        }
-    });
-
-    conteudoDiv.innerHTML = html;
+    const texto = conteudoDiv.innerText;
+    const texto_html = texto.replace(/\n/g, '<br>');
+    conteudoDiv.innerHTML = texto_html;
 </script>
 
 </body>
