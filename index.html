@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@ Parte 2: O guia do growth hacking<BR>
 9. Um ciclo virtuoso de crescimento<BR>
 
 
-Introdução 
+INTRODUÇÃO 
 Quando eu, Sean, recebi uma ligação do criador do Dropbox em 2008, a situação complicada que a startup vivia imediatamente despertou meu interesse. O serviço de armazenamento e compartilhamento de arquivos na nuvem que Drew Houston lançara um ano antes tinha conquistado uma boa base inicial de fãs, sobretudo na comunidade tecnológica do Vale do Silício. Antes mesmo de finalizar o produto, Houston havia subido na internet um vídeo explicando passo a passo como o Dropbox funcionaria. Com essa tacada, conquistara o apoio da poderosa incubadora Y Combinator e uma enxurrada de early adopters. 
 Então, um segundo vídeo postado no site agregador de notícias Digg viralizou, levando a lista de espera da versão beta a subir instantaneamente de 5 mil para 75 mil interessados, e ficou patente para Houston que ele 
 tinha algo bom nas mãos.1 <BR>Só que, embora a nova safra de usuários conquistados na estreia oficial estivesse satisfeita com o serviço, Houston vinha tendo dificuldade para emplacar a ideia fora dos círculos tecnológicos e não havia tempo a perder, pois a concorrência era feroz: uma startup, a Mozy, tinha três anos de vantagem no mercado; outra, a Carbonite, levantara um total de US$ 48 milhões, ao passo que Houston conseguira apenas US$ 1,2 milhão em capital-semente. Enquanto isso, as gigantes Microsoft e Google se preparavam para entrar no mercado de armazenamento na nuvem. Como aumentar a base de clientes do Dropbox com uma concorrência desse calibre? 
@@ -1691,29 +1691,15 @@ Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento 
     const conteudoDiv = document.getElementById('conteudo');
     const linhas = conteudoDiv.innerText.split('\n');
     let html = '';
-    const partes = [
-        "PARTE 1: O MÉTODO",
-        "PARTE 2: O GUIA DO GROWTH HACKING"
-    ];
-    const capitulos = [
-        "1. COMO MONTAR UMA EQUIPE DE CRESCIMENTO",
-        "2. COMO SABER SE SEU PRODUTO É “MUST-HAVE”",
-        "3. COMO IDENTIFICAR SUAS ALAVANCAS DE CRESCIMENTO",
-        "4. TESTANDO EM RITMO ACELERADO",
-        "5. HACKING PARA A AQUISIÇÃO",
-        "6. HACKING PARA A ATIVAÇÃO",
-        "7. HACKING PARA A RETENÇÃO",
-        "8. HACKING PARA A MONETIZAÇÃO",
-        "9. UM CICLO VIRTUOSO DE CRESCIMENTO"
-    ];
 
-    linhas.forEach(linha => {
-        if (partes.includes(linha.toUpperCase())) {
-            html += `<div class="parte">${linha}</div>`;
-        } else if (capitulos.includes(linha.toUpperCase())) {
-            html += `<div class="capitulo">${linha}</div>`;
-        } else if (linha === linha.toUpperCase() && linha.includes(' ')) {
-            html += `<div class="subtitulo">${linha}</div>`;
+    linhas.forEach((linha, index) => {
+        const proximaLinha = linhas[index + 1] || '';
+        if (/^PARTE \d+:/.test(linha.toUpperCase())) {
+            html += `<div class="parte">${linha}</div><br>`;
+        } else if (/^\d+\./.test(linha)) {
+            html += `<div class="capitulo">${linha}</div><br>`;
+        } else if (/^[A-Z\s]+$/.test(linha) && proximaLinha && proximaLinha !== proximaLinha.toUpperCase()) {
+            html += `<div class="subtitulo">${linha}</div><br>`;
         } else {
             html += `<div>${linha}</div>`;
         }
@@ -1722,7 +1708,5 @@ Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento 
     conteudoDiv.innerHTML = html;
 </script>
 
-</body>
-</html>
 </body>
 </html>
