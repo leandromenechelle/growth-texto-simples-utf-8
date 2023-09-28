@@ -1700,8 +1700,14 @@ Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento 
     // Substitua quebras de linha duplas por <br>
     texto = texto.replace(/\n\s*\n/g, '<br><br>');
 
+    // Remova quebras de linha indesejadas que dividem frases ao meio
+    texto = texto.replace(/([a-z])\s*\n\s*([a-z])/g, '$1 $2');
+
     conteudoDiv.innerHTML = texto;
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
