@@ -1687,5 +1687,21 @@ Leandro o Brabo disse: Desejamos muitas vitórias em sua busca pelo crescimento 
 
 </div>
 
+<script>
+    const conteudoDiv = document.getElementById('conteudo');
+    let texto = conteudoDiv.innerText;
+
+    // Substitua pontos seguidos por uma nova linha por <br>
+    texto = texto.replace(/\.(\s*\n\s*)+/g, '.<br><br>');
+
+    // Substitua pontos seguidos por espaço por <br>
+    texto = texto.replace(/\.(\s{2,})+/g, '.<br><br>');
+
+    // Substitua quebras de linha duplas por <br>
+    texto = texto.replace(/\n\s*\n/g, '<br><br>');
+
+    conteudoDiv.innerHTML = texto;
+</script>
+
 </body>
 </html>
